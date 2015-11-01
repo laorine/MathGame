@@ -1,0 +1,20 @@
+<script>
+function convert(nombre) {
+   if ((nombre/3) > 0) {
+  	convert(parseInt(nombre/3));
+    nombre = nombre - parseInt(nombre/3)*3
+  }
+  document.getElementById('resultat').innerHTML += nombre;
+}
+
+function convertir() {
+  document.getElementById('resultat').innerHTML = "";
+  var nombre = document.getElementById('nombre').value;
+  convert(nombre);
+}
+</script>
+
+
+Votre valeur: <input type="text" id="nombre" value="52">
+<input type=button value="Convertir" onClick="convertir()"><br>
+Résultat: <span id="resultat">(click "Convertir")</span>
