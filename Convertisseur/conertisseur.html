@@ -1,8 +1,8 @@
 <script>
-function convert(nombre) {
-   if ((nombre/3) > 0) {
-  	convert(parseInt(nombre/3));
-    nombre = nombre - parseInt(nombre/3)*3
+function convert(base,nombre) {
+   if ((nombre/base) > 0) {
+  	convert(base,parseInt(nombre/base));
+    nombre = nombre - parseInt(nombre/base)*base
   }
   document.getElementById('resultat').innerHTML += nombre;
 }
@@ -10,11 +10,12 @@ function convert(nombre) {
 function convertir() {
   document.getElementById('resultat').innerHTML = "";
   var nombre = document.getElementById('nombre').value;
-  convert(nombre);
+  var base = document.getElementById('base').value; 
+  convert(base,nombre);
 }
 </script>
 
-
+Base: <input type="text" id="base" value="3">
 Votre valeur: <input type="text" id="nombre" value="52">
 <input type=button value="Convertir" onClick="convertir()"><br>
 Résultat: <span id="resultat">(click "Convertir")</span>
